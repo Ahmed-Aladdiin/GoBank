@@ -7,8 +7,8 @@ type Account struct {
 	FirstName         string    `json:"firstName"`
 	LastName          string    `json:"lastName"`
 	Number            int       `json:"number"`
-	Balance           float64   `json:"Balance"`
-	EncryptedPassword string    `json:"-"`
+	Balance           float64   `json:"balance"`
+	EncryptedPassword string    `json:"encryptedPassword"`
 	CreatedAt         time.Time `json:"createdAt"`
 }
 
