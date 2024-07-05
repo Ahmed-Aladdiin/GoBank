@@ -13,8 +13,26 @@ import (
 func Run(server *types.Server) {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/accounts", routers.AccountsRouter)
-	router.HandleFunc("/accounts/{id}", routers.AccountsRouterByID)
+	router.HandleFunc(
+		"/accounts",
+		func(w http.ResponseWriter, r *http.Request) {
+			routers.AccountsRouter(w, r, server)
+		},
+	)
+
+	router.HandleFunc(
+		"/accounts/{id}",
+		func(w http.ResponseWriter, r *http.Request) {
+			routers.AccountsRouterByID(w, r, server)
+		},
+	)
+
+	router.HandleFunc(
+		"/transaction/{type}",
+		func(w http.ResponseWriter, r *http.Request) {
+			routers.TransactionsRouter(w, r, server)
+		},
+	)
 
 	log.Println("Server started at port ", server.ListenAddr)
 
