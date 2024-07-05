@@ -3,7 +3,11 @@ build:
 	@./set_container.sh
 	@sleep 4
 
-run: build 
+setup: build 
+	@./bin/gobank
+
+run:
+	@go build -o bin/gobank
 	@./bin/gobank
 
 test:
