@@ -1,0 +1,56 @@
+@localHost=http://localhost:8000
+@host={{localHost}}
+
+###=================================
+## Accounts 
+
+POST {{host}}/accounts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Ahmed",
+    "lastName": "Aladdin"
+}
+###
+
+GET {{host}}/accounts HTTP/1.1
+###
+
+GET {{host}}/accounts/1 HTTP/1.1
+###
+
+DELETE {{host}}/accounts/1 HTTP/1.1
+###
+
+###================================
+## Transactions
+
+PUT {{host}}/transaction/deposit HTTP/1.1
+Content-Type: application/json
+
+{
+    "accountFrom": 0,
+    "accountTo": 2,
+    "amount": 100
+}
+###
+
+PUT {{host}}/transaction/withdraw HTTP/1.1
+Content-Type: application/json
+
+{
+    "accountFrom": 1,
+    "accountTo": 0,
+    "amount": 30
+}
+###
+
+PUT {{host}}/transaction/transfare HTTP/1.1
+Content-Type: application/json
+
+{
+    "accountFrom": 2,
+    "accountTo": 1,
+    "amount": 50
+}
+###
