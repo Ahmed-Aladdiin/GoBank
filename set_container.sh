@@ -2,7 +2,7 @@
 container_name="psql_container"
 systemctl --user start docker-desktop
 
-ck_container=$(docker container ls | grep $container_name)
+ck_container=$(docker ps -a | grep $container_name)
 
 if [[ -z "$ck_container" ]] 
 then
